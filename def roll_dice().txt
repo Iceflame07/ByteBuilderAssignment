@@ -1,0 +1,120 @@
+def roll_dice():
+6 """Roll two dice and return their face values as a tuple."""
+7 die1 = random.randrange(1, 7)
+8 die2 = random.randrange(1, 7)
+9 return (die1, die2) # pack die face values into a tuple
+10
+11 def display_dice(dice):
+12 """Display one roll of the two dice."""
+13 die1, die2 = dice # unpack the tuple into variables die1 and die2
+14 print(f'Player rolled {die1} + {die2} = {sum(dice)}')
+15
+16 die_values = roll_dice() # first roll
+17 display_dice(die_values)
+
+--------------------------------------------------------------------------------------------------------------
+
+termine game status and point, based on first roll
+20 sum_of_dice = sum(die_values)
+21
+22 if sum_of_dice in (7, 11): # win
+23 game_status = 'WON'
+24 elif sum_of_dice in (2, 3, 12): # lose
+25 game_status = 'LOST'
+26 else: # remember point
+27 game_status = 'CONTINUE'
+28 my_point = sum_of_dice
+29 print('Point is', my_point)
+30
+31 # continue rolling until player wins or loses
+32 while game_status == 'CONTINUE':
+33 die_values = roll_dice()
+34 display_dice(die_values)
+35 sum_of_dice = sum(die_values)
+36
+37 if sum_of_dice == my_point: # win by making point
+38 game_status = 'WON'
+39 elif sum_of_dice == 7: # lose by rolling 7
+40 game_status = 'LOST'
+41
+42 # display "wins" or "loses" message
+43 if game_status == 'WON':
+44 print('Player wins')
+45 else:
+46 print('Player loses')
+
+
+==============================================================================================================
+
+
+def cube(number):
+ ...: print('id(number):', id(number))
+ ...: return number ** 3
+
+==============================================================================================================
+functions
+
+ef cube(number):
+ ...: print('id(number) before modifying number:', id(number))
+ ...: number **= 3
+ ...: print('id(number) after modifying number:', id(number))
+ ...: return number
+
+==============================================================================================================
+
+def calculate_product(*args):
+ ...: product = 1
+ ...: for value in args:
+ ...: product *= value
+ ...: return product
+
+==============================================================================================================
+functions
+
+"""Simulating the dice game Craps."""
+3 import random
+4
+5 def roll_dice():
+6 """Roll two dice and return their face values as a tuple."""
+7 die1 = random.randrange(1, 7)
+8 die2 = random.randrange(1, 7)
+9 return (die1, die2) # pack die face values into a tuple
+10
+11 def display_dice(dice):
+12 """Display one roll of the two dice."""
+13 die1, die2 = dice # unpack the tuple into variables die1 and die2
+14 print(f'Player rolled {die1} + {die2} = {sum(dice)}')
+15
+16 die_values = roll_dice() # first roll
+17 display_dice(die_values)
+18
+Fig. 4.2 | Game of craps. (Part 1 of 2.)
+4.5 Case Study: A Game of Chance 129
+19 # determine game status and point, based on first roll
+20 sum_of_dice = sum(die_values)
+21
+22 if sum_of_dice in (7, 11): # win
+23 game_status = 'WON'
+24 elif sum_of_dice in (2, 3, 12): # lose
+25 game_status = 'LOST'
+26 else: # remember point
+27 game_status = 'CONTINUE'
+28 my_point = sum_of_dice
+29 print('Point is', my_point)
+30
+31 # continue rolling until player wins or loses
+32 while game_status == 'CONTINUE':
+33 die_values = roll_dice()
+34 display_dice(die_values)
+35 sum_of_dice = sum(die_values)
+36
+37 if sum_of_dice == my_point: # win by making point
+38 game_status = 'WON'
+39 elif sum_of_dice == 7: # lose by rolling 7
+40 game_status = 'LOST'
+41
+42 # display "wins" or "loses" message
+43 if game_status == 'WON':
+44 print('Player wins')
+45 else:
+46 print('Player loses')
